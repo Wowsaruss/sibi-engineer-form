@@ -47,8 +47,45 @@ class Form extends Component {
     }
 
     handleDataPost(post) {
-        axios.post({
-
+        axios.post('http://localhost:3080/api/data_submit', {
+            Gender: this.state.Gender,
+            NameSet: this.state.NameSet,
+            Title: this.state.Title,
+            GivenName: this.state.GivenName,
+            MiddleInitial: this.state.MiddleInitial,
+            Surname: this.state.Surname,
+            StreetAddress: this.state.StreetAddress,
+            City: this.state.City,
+            State: this.state.State,
+            StateFull: this.state.StateFull,
+            ZipCode: this.state.ZipCode,
+            Country: this.state.Country,
+            CountryFull: this.state.CountryFull,
+            EmailAddress: this.state.EmailAddress,
+            UserName: this.state.UserName,
+            Password: this.state.Password,
+            BrowserUserAgent: this.state.BrowserUserAgent,
+            TelephoneNumber: this.state.TelephoneNumber,
+            TelephoneCountryCode: this.state.TelephoneCountryCode,
+            MothersMaiden: this.state.MothersMaiden,
+            Birthday: this.state.Birthday,
+            Age: this.state.Age,
+            CCType: this.state.CCType,
+            CCNumber: this.state.CCNumber,
+            CVV2: this.state.CVV2,
+            CCExpires: this.state.CCExpires,
+            NationalID: this.state.NationalID,
+            UPS: this.state.UPS,
+            WesternUnionMTCN: this.state.WesternUnionMTCN,
+            MoneyGramMTCN: this.state.MoneyGramMTCN,
+            Color: this.state.Color,
+            Occupation: this.state.Occupation,
+            Company: this.state.Company,
+            Vehicle: this.state.Vehicle,
+            Domain: this.state.Domain,
+            GUID: this.state.GUID,
+            Latitude: this.state.Latitude,
+            Longitude: this.state.Longitude
         })
         this.setState({
             Gender: '',
@@ -338,7 +375,7 @@ class Form extends Component {
                         </div>
                     </div>
                     <div className='submit-main-parent' >
-                        <div className='submit' >SUBMIT</div>
+                        <div className='submit' onClick={() => this.handleDataPost()} >SUBMIT</div>
                     </div>
                 </div>
             </div>

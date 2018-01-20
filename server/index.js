@@ -1,18 +1,21 @@
 require('dotenv').config();
-const cors = require('cors')
-    , express = require('express')
-    , bodyParser = require('body-parser')
-    , massive = require('massive')
+const controller = require('./controller/controller');
+const bodyParser = require('body-parser');
+const massive = require('massive');
+const express = require('express');
+const cors = require('cors');
 const app = express();
 const port  =  3080;
 
+app.use(express.static('build'))
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('build'))
 
 massive(process.env.CONNECTION_STRING)
 .then( db => {
     app.set('db', db)
-})
+});
+
+app.post('/api/data_submit', controller.submit_data);
 
 app.listen(port, () => console.log(`listening on port ${port}`));
