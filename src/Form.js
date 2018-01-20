@@ -47,7 +47,7 @@ class Form extends Component {
     }
 
     handleDataPost(post) {
-        axios.post('http://localhost:3080/api/data_submit', {
+        axios.post(`${ process.env.REACT_APP_HOST}/api/data_submit`, {
             Gender: this.state.Gender,
             NameSet: this.state.NameSet,
             Title: this.state.Title,
